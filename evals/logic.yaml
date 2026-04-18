@@ -1,0 +1,13 @@
+name: logic-basics
+cases:
+  - prompt: "Is the statement 'All cats are animals' a valid syllogism premise?"
+    expected: "yes"
+    scoring: exact
+
+  - prompt: "What is the logical opposite of 'always'?"
+    expected: "never"
+    scoring: exact
+
+  - prompt: "Explain the difference between deductive and inductive reasoning."
+    expected: "deductive reasoning draws specific conclusions from general premises; inductive reasoning draws general conclusions from specific observations"
+    scoring: fuzzy

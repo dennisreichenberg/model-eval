@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "model-eval"
+version = "0.1.0"
+description = "Evaluate local LLM answer quality via Ollama -- exact-match, fuzzy-match, and LLM-as-judge scoring"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Dennis Reichenberg" }]
+keywords = ["llm", "ollama", "evaluation", "cli", "ai", "quality"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.1",
+    "httpx>=0.27",
+    "rich>=13.0",
+    "pyyaml>=6.0",
+    "rapidfuzz>=3.0",
+    "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio", "pytest-cov", "ruff", "mypy"]
+
+[project.scripts]
+model-eval = "model_eval.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/dennisreichenberg/model-eval"
+Repository = "https://github.com/dennisreichenberg/model-eval"
+Issues = "https://github.com/dennisreichenberg/model-eval/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["model_eval"]

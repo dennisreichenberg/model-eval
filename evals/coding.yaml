@@ -1,0 +1,16 @@
+name: coding-basics
+cases:
+  - prompt: "What keyword is used to define a function in Python?"
+    expected: "def"
+    scoring: exact
+    description: Python function keyword
+
+  - prompt: "What does the 'ls' command do in a Unix shell?"
+    expected: "lists files and directories"
+    scoring: fuzzy
+    description: Unix ls command
+
+  - prompt: "Explain what a Python list comprehension is."
+    expected: "a concise way to create lists using a single expression with optional filtering"
+    scoring: llm_judge
+    description: List comprehension explanation
